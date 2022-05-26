@@ -96,8 +96,8 @@ class App{
 				self.Armature = new Player(options);
                 self.Armature.object.visible = false;
 				
-				self.Armature.action = 'selam';
-				const scale = 0.05;
+				self.Armature.action = 'ArmatureAction';
+				const scale = 0.1;
 				self.Armature.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
