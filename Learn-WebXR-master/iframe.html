@@ -85,7 +85,7 @@
       
     class="Augmented-Reality-3D"
     id="Lazzoni"
-    src="Saat.glb"
+    src="Saat-saniye.glb"
     alt="3D-AR by BASE"
     poster="assets/loadingfinal.gif"
 
@@ -103,7 +103,7 @@
  
 
    </model-viewer>
- 
+  
 <script>
 
   
@@ -112,7 +112,7 @@
         const today = new Date();
   let h = today.getHours()%12;
   let m = today.getMinutes();
-  let s = today.getSeconds();
+  let s = today.getSeconds()*10;
   m = checkTime(m);
   s = checkTime(s);
  
@@ -122,9 +122,10 @@
         const modelViewer = document.querySelector('model-viewer');
        
         modelViewer.play();
-        t=modelViewer.duration
-        modelViewer.currentTime=((h+1)+"."+((10*m)/3).toFixed(0));
-        console.log(((h+1)+"."+((10*m)/3).toFixed(0)));
+       
+        modelViewer.currentTime=((h*3600+m*60+s/10));
+        
+      
         modelViewer.pause();
        
        
