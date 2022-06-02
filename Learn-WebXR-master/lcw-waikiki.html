@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+
+<html class="no-js" lang="en">
+
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title> Artırılmış Gerçeklik - 3D Konfigüratör - 3D Görüntüleme </title>
+    <meta name="keywords" content="augmentedreality, artırılmışgerçeklik, base bros, 3dgörüntüleme, ar, webar, arttırılmışgerçeklik"/>
+    <meta name="description" content="BASE olarak müşterilerimiz için eşsiz ve teknolojik dijital deneyim projeleri üretiyoruz. E-Ticaret sitelerinizde bulunan ürünlerinizin 3D ve Artırılmış Gerçeklik çözümleri.">
+    <meta name="subject" content="Artırılmış Gerçeklik - 3D Konfigüratör">
+    <meta name="copyright"content="BASE BROS">
+    <meta name="author" content="info@basebros.com">
+    <meta name="reply-to" content="info@basebros.com">
+    <meta name="url" content="http://www.basebros.com">
+    <meta name="distribution" content="Global">
+    <meta name="coverage" content="Worldwide">
+    <meta name="author" content="BASE BROS">
+
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- script
+    ================================================== -->
+ 
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    
+    <script type="module"
+    src="https://unpkg.com/@google/model-viewer@v1.11.0/dist/model-viewer.min.js">
+    </script>
+  
+    <script nomodule
+    src="https://unpkg.com/@google/model-viewer@v1.11.0/dist/model-viewer-legacy.js">
+    </script>
+  
+  
+    <!-- CSS
+    ================================================== -->
+
+ 
+
+
+</head>  
+
+
+
+<body>
+  
+
+
+
+
+
+
+  <style>
+
+
+    model-viewer{
+      position: absolute;
+  top:0%;
+  left:0%;
+      width: 99vw;
+      height: 90vh;
+     
+    }
+    model-viewer {
+      --progress-mask: transparent;
+      --poster-color: transparent;
+      z-index: 1;
+  }
+  </style>
+
+
+ 
+  
+
+
+  <div class="grid-container">
+            
+   <model-viewer 
+      
+    class="Augmented-Reality-3D"
+    id="Lazzoni"
+    src="lcw-waikiki.glb"
+    alt="3D-AR by BASE"
+    poster="assets/loadingfinal.gif"
+
+    ar
+        exposure="1.3"
+    camera-controls
+    touch-action="none"
+    ar-modes="webxr quick-look"
+    camera-orbit="-10deg 75deg m"
+    quick-look-browsers="safari chrome"
+    shadow-intensity="1" 
+    environment-image="neutral"
+    >
+
+ 
+
+   </model-viewer>
+  
+
+<script>
+
+
+var modelViewer = document.querySelector("model-viewer");
+var scene =
+      modelViewer[
+        Object.getOwnPropertySymbols(modelViewer).find(
+          (x) => x.description === "scene"
+        )
+      ];
+
+      var object = scene.getObjectByName(meshes[mesh]);
+       console.log(object+" "+meshs[mesh])
+       if(object){
+
+       
+           object.visible = !object.visible;
+           object.visible? this.innerHTML="on" : this.innerHTML="off";
+           // hack to force scene to re-render
+           modelViewer.scale = "0 0 0";
+           modelViewer.scale = "1 1 1";
+       }
+
+</script>
+
+
+
+
+    
+
+  
+
+     
+   
+
+
+
+
+
+
+  
+
+ 
+
+
+
+
+</div>
+
+
+
+
+
+
+</body>
