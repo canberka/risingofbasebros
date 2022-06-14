@@ -1,0 +1,109 @@
+<!-- HTML -->
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+<script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+<script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+
+<script type="module"
+src="https://unpkg.com/@google/model-viewer@v1.8.0/dist/model-viewer.min.js">
+</script>
+
+<script nomodule
+src="https://unpkg.com/@google/model-viewer@v1.8.0/dist/model-viewer-legacy.js">
+</script>
+<html>
+  <body>
+
+    <style>
+
+
+        model-viewer{
+          position: absolute;
+      top:0%;
+      left:0%;
+          width: 50%;
+          height: 50%;
+         
+        }
+        model-viewer {
+          --progress-mask: transparent;
+          --poster-color: transparent;
+          z-index: 1;
+      }
+      </style>
+   <model-viewer 
+      
+   class="Augmented-Reality-3D"
+   id="Lazzoni"
+   src="harita.glb"
+   alt="3D-AR by BASE"
+   poster="assets/loadingfinal.gif"
+autoplay
+   ar
+       exposure="1"
+   camera-controls
+   touch-action="none"
+   ar-modes="scene-viewer quick-look"
+   camera-target="0m 0.1m 0m"
+   quick-look-browsers="safari chrome"
+   shadow-intensity="1.3" 
+   environment-image="neutral"
+   >
+
+
+
+  </model-viewer>
+	<canvas id="myCanvas" width="750" height="500"crossorigin>your canvas loads here</canvas>
+    <button id="click"></button>
+    <button id="deneme" onclick="putImage()"></button>
+      <div id="MyPix" crossorigin="anonymous">selam</div>
+  </body>
+</html>
+
+<!-- Javascript -->
+<script>
+    
+      var myCanvas = document.getElementById("myCanvas");
+      var myContext = myCanvas.getContext("2d");
+      
+      myCanvas.width="650"; // Optional
+      myCanvas.height="450"; // Optional
+
+      var myImage=new Image();
+      myImage.src="https://static-maps.yandex.ru/1.x/?lang=en_US&ll=28.97709,41.065233&z=10&size=650,450&l=map,trf";
+      myImage.onload=function(){
+        myContext.drawImage(myImage,0,0,myCanvas.width,myCanvas.height);
+        myImage.setAttribute('crossorigin', 'anonymous');
+
+       
+       
+      };
+     function putImage(){
+      document.getElementById("MyPix").innerHTML= myContext.canvas.toDataURL();
+    
+     }
+const modelViewerTexture = document.querySelector("model-viewer");
+
+modelViewerTexture.addEventListener("scene-graph-ready", (ev) => {
+
+
+    let material1 = modelViewerTexture.model.materials[0];
+   
+;
+
+
+
+    document.getElementById('click').addEventListener('click', (event) => {
+        material1.pbrMetallicRoughness.baseColorTexture.texture.source.setURI(myImage);
+
+    });
+   
+
+
+   
+
+})
+
+    
+
+</script>
