@@ -25,6 +25,14 @@
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
     <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    <script type="module"
+    src="https://unpkg.com/@google/model-viewer@v1.8.0/dist/model-viewer.min.js">
+    </script>
+  
+    <script nomodule
+    src="https://unpkg.com/@google/model-viewer@v1.8.0/dist/model-viewer-legacy.js">
+    </script>
+		<style></style>
     
   
   
@@ -36,7 +44,30 @@
 	</head>
 
 	<body>
-
+    <div class="grid-container">
+            
+      <model-viewer 
+         
+       class="Augmented-Reality-3D"
+       id="Lazzoni"
+       src="mektup.glb"
+       alt="3D-AR by BASE"
+      
+    
+       ar
+           exposure="1.3"
+       camera-controls
+       touch-action="none"
+       ar-modes="webxr quick-look"
+       camera-orbit="-10deg 75deg m"
+       quick-look-browsers="safari chrome"
+       shadow-intensity="1.3" 
+       environment-image="neutral"
+       >
+    
+    
+    
+      </model-viewer>
 
      
         <SECTION>
@@ -190,7 +221,7 @@ function save( blob, filename ) {
                     link.click();
                     console.log(link.href)
                     // URL.revokeObjectURL( url ); breaks Firefox...
-                    document.getElementById("Lazzoni").src=link.href
+                    //document.getElementById("Lazzoni").src=link.href
                     }
 
 
@@ -209,6 +240,11 @@ function saveArrayBuffer( buffer, filename ) {
                 }
 
 
+
+
+
+            var reader = new FileReader();
+              
 
 
                                
@@ -277,7 +313,26 @@ this.on("maxfilesexceeded", function(file) {
             self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
             if (file.upload.progress == 100) {
               console.log(file)
-  
+              
+              
+              
+              reader.onload = gltfText => {
+	
+  let loader = new GLTFLoader()	.setDRACOLoader( new DRACOLoader().setDecoderPath( 'js/libs/draco/gltf/' ) );
+
+  loader.parse( gltfText.target.result, '', (gltfData) => {
+   
+
+
+
+
+
+
+exportGLTF( gltfData.scene );
+
+
+} )};
+
              
            
               
