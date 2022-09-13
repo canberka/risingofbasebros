@@ -81,16 +81,7 @@
 							} );
 
 					} );
-				var geometry = new THREE.PlaneBufferGeometry( 4, 4 );
-				var material = new THREE.MeshStandardMaterial( {
-					color: 0xeeeeee,
-					roughness: 1.0,
-					metalness: 0.0
-				} );
-				var floor = new THREE.Mesh( geometry, material );
-				floor.rotation.x = - Math.PI / 2;
-				floor.receiveShadow = true;
-				scene.add( floor );
+			
 
 				scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
 
@@ -119,46 +110,6 @@
 
 				// controllers
 
-				controller1 = renderer.xr.getController( 0 );
-				scene.add( controller1 );
-
-				controller2 = renderer.xr.getController( 1 );
-				scene.add( controller2 );
-
-				var controllerModelFactory = new XRControllerModelFactory();
-				var handModelFactory = new XRHandModelFactory();
-
-				// Hand 1
-				controllerGrip1 = renderer.xr.getControllerGrip( 0 );
-				controllerGrip1.add( controllerModelFactory.createControllerModel( controllerGrip1 ) );
-				scene.add( controllerGrip1 );
-
-				hand1 = renderer.xr.getHand( 0 );
-				hand1.add( handModelFactory.createHandModel( hand1 ) );
-
-				scene.add( hand1 );
-
-				// Hand 2
-				controllerGrip2 = renderer.xr.getControllerGrip( 1 );
-				controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
-				scene.add( controllerGrip2 );
-
-				hand2 = renderer.xr.getHand( 1 );
-				hand2.add( handModelFactory.createHandModel( hand2 ) );
-				scene.add( hand2 );
-
-				//
-
-				var geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
-
-				var line = new THREE.Line( geometry );
-				line.name = 'line';
-				line.scale.z = 5;
-
-				controller1.add( line.clone() );
-				controller2.add( line.clone() );
-
-				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
