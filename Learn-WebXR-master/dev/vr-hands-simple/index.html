@@ -71,7 +71,7 @@
 
 						new GLTFLoader()
 							.setPath( '../../models/gltf/' )
-							.setDRACOLoader( new DRACOLoader().setDecoderPath( 'js/libs/draco/gltf/' ) )
+							.setDRACOLoader( new DRACOLoader().setDecoderPath( '../../libs/three/js/libs/draco/gltf/' ) )
 							.load( 'Saat-saniye.glb', function ( gltf ) {
 
 								mixer = new THREE.AnimationMixer( gltf.scene );
