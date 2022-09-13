@@ -74,8 +74,7 @@
 							.setDRACOLoader( new DRACOLoader().setDecoderPath( '../../libs/three/js/draco/gltf/' ) )
 							.load( 'okur.glb', function ( gltf ) {
 
-								mixer = new THREE.AnimationMixer( gltf.scene );
-								mixer.clipAction( gltf.animations[ 0 ] ).play();
+								
 								scene.add( gltf.scene );
 							
 
