@@ -77,21 +77,18 @@
 								mixer = new THREE.AnimationMixer( gltf.scene );
 								mixer.clipAction( gltf.animations[ 0 ] ).play();
 								scene.add( gltf.scene );
-								console.log(gltf.scene)
-								var encoded = JSON.stringify(gltf.scene)
-								
-								console.log(encoded)
-
-								var decoded = JSON.parse( encoded )
-
-								console.log(decoded)
-								scene.remove(gltf.scene)
-								//scene.add(decoded)
+							
 
 
 							} );
 
 					} );
+				var geometry = new THREE.PlaneBufferGeometry( 4, 4 );
+				var material = new THREE.MeshStandardMaterial( {
+					color: 0xeeeeee,
+					roughness: 1.0,
+					metalness: 0.0
+				} );
 				var floor = new THREE.Mesh( geometry, material );
 				floor.rotation.x = - Math.PI / 2;
 				floor.receiveShadow = true;
