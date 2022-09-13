@@ -63,12 +63,12 @@ scene.environment=texture;
 						new GLTFLoader()
 							.setPath( '../../models/gltf/' )
 							.setDRACOLoader( new DRACOLoader().setDecoderPath( '../../libs/three/js/draco/gltf/' ) )
-							.load( 'okur3.glb', function ( gltf ) {
+							.load( 'okur4.glb', function ( gltf ) {
 
 								
 								scene.add( gltf.scene );
 							
-alert("hehe");
+
 
 							} );
 
@@ -99,6 +99,7 @@ alert("hehe");
 				container.appendChild( renderer.domElement );
 
 				const btn = new VRButton( renderer );
+				btn.style.height="99vh"
 
 				// controllers
 
