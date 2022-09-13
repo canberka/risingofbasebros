@@ -59,7 +59,7 @@
 				controls.update();
 
 						new RGBELoader()
-					.setPath( 'textures/equirectangular/' )
+					.setPath( '../../textures/equirectangular/' )
 					.load( 'royal_esplanade_1k.hdr', function ( texture ) {
 
 						texture.mapping = THREE.EquirectangularReflectionMapping;
@@ -70,7 +70,7 @@
 						// model
 
 						new GLTFLoader()
-							.setPath( 'models/gltf/' )
+							.setPath( '../../models/gltf/' )
 							.setDRACOLoader( new DRACOLoader().setDecoderPath( 'js/libs/draco/gltf/' ) )
 							.load( 'Saat-saniye.glb', function ( gltf ) {
 
