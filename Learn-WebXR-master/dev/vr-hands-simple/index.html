@@ -101,9 +101,14 @@ const btn = new VRButton( renderer );
 				scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
 
 				var light = new THREE.DirectionalLight( 0xffffff );
-				light.position.set( 0, 6, 0 );
+				light.position.set( 5, 6, 2 );
 				
 				scene.add( light );
+				
+				var light2 = new THREE.DirectionalLight( 0xffffff );
+				light2.position.set( -5, 6, 2 );
+				
+				scene.add( light2 );
 				
 
 				// controllers
