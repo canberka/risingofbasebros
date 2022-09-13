@@ -52,7 +52,7 @@
 				scene.background = new THREE.Color( 0x808080 );
 
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 50 );
-				camera.position.set( 0, 0, 1 );
+				camera.position.set( 0, 0, 2 );
 
 				controls = new OrbitControls( camera, container );
 				controls.target.set( 0, 0, 0 );
@@ -61,7 +61,7 @@
 						new RGBELoader()
 					.setPath( '../../textures/equirectangular/' )
 					.load( 'royal_esplanade_1k.hdr', function ( texture ) {
-
+scene.environment=texture;
 						texture.mapping = THREE.EquirectangularReflectionMapping;
 
 						
