@@ -12,12 +12,12 @@
 		<style>
 		
 		button {
-    position: absolute;
-    display: block;
-    z-index: 99;
-    left: 10%;
-    top: 10%;
-   height:99vh;
+	    position: absolute;
+	    display: none;
+	    z-index: 99;
+
+	    height:99vh;
+			
     }
 		</style>
 		
@@ -78,7 +78,7 @@ scene.environment=texture;
 								
 								scene.add( gltf.scene );
 							
-
+document.getElementsByTagName('button').style.display="block";
 
 							} );
 
