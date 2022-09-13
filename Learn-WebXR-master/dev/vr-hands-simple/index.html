@@ -52,7 +52,7 @@
 				scene.background = new THREE.Color( 0x808080 );
 
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 50 );
-				camera.position.set( 0, 0, 0 );
+				camera.position.set( 0, 0, 1 );
 
 				controls = new OrbitControls( camera, container );
 				controls.target.set( 0, 0, 0 );
@@ -64,7 +64,7 @@
 
 						texture.mapping = THREE.EquirectangularReflectionMapping;
 
-						scene.environment = texture;
+						
 
 						// model
 
@@ -106,7 +106,7 @@
 
 				container.appendChild( renderer.domElement );
 
-				const btn = new VRButton( renderer, { sessionInit: { optionalFeatures: [ 'local-floor', 'bounded-floor', 'hand-tracking' ] } } );
+				
 
 				// controllers
 
