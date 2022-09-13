@@ -58,12 +58,40 @@
 				controls.target.set( 0, 1.6, 0 );
 				controls.update();
 
-				var geometry = new THREE.PlaneBufferGeometry( 4, 4 );
-				var material = new THREE.MeshStandardMaterial( {
-					color: 0xeeeeee,
-					roughness: 1.0,
-					metalness: 0.0
-				} );
+						new RGBELoader()
+					.setPath( 'textures/equirectangular/' )
+					.load( 'royal_esplanade_1k.hdr', function ( texture ) {
+
+						texture.mapping = THREE.EquirectangularReflectionMapping;
+
+						scene.background = texture;
+						scene.environment = texture;
+
+						// model
+
+						new GLTFLoader()
+							.setPath( 'models/gltf/' )
+							.setDRACOLoader( new DRACOLoader().setDecoderPath( 'js/libs/draco/gltf/' ) )
+							.load( 'Saat-saniye.glb', function ( gltf ) {
+
+								mixer = new THREE.AnimationMixer( gltf.scene );
+								mixer.clipAction( gltf.animations[ 0 ] ).play();
+								scene.add( gltf.scene );
+								console.log(gltf.scene)
+								var encoded = JSON.stringify(gltf.scene)
+								
+								console.log(encoded)
+
+								var decoded = JSON.parse( encoded )
+
+								console.log(decoded)
+								scene.remove(gltf.scene)
+								//scene.add(decoded)
+
+
+							} );
+
+					} );
 				var floor = new THREE.Mesh( geometry, material );
 				floor.rotation.x = - Math.PI / 2;
 				floor.receiveShadow = true;
